@@ -11,6 +11,11 @@
 
 {% endblock demographics %}
 
+{% block infant_dashboard %}
+	{% if infant_dashboard_include_value %}
+		{% include infant_dashboard_include_value %}
+	{% endif %}
+{% endblock infant_dashboard %}
 
 {% block prn_forms %}   
 
@@ -38,6 +43,12 @@
     {% include 'edc_subject_dashboard/dashboard/sidebar/consents.html' %}
 
 {% endblock consents %}
+
+{% block special_forms %}
+	{% if special_forms_include_value %}
+		{% include special_forms_include_value %}
+	{% endif %}
+{% endblock special_forms %}
 
 
 {% block action_items %}   
