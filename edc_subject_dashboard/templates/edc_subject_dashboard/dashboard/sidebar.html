@@ -17,6 +17,12 @@
 	{% endif %}
 {% endblock infant_dashboard %}
 
+{% block maternal_dashboard %}
+	{% if maternal_dashboard_include_value %}
+		{% include maternal_dashboard_include_value %}
+	{% endif %}
+{% endblock maternal_dashboard %}
+
 {% block prn_forms %}   
 
 	<div class="list-group list-group-default">

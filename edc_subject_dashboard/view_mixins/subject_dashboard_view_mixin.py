@@ -29,10 +29,13 @@ class SpecialForms(ContextMixin):
         return context
 
 
-class InfantDashboardLinks(ContextMixin):
+class MaternalInfantDashboardLinks(ContextMixin):
 
     mother_infant_study = False
+    infant_links = False
+    maternal_links = False
     infant_dashboard_include_value = None
+    maternal_dashboard_include_value = None
     infant_subject_dashboard_url = None
 
     @property
@@ -61,7 +64,10 @@ class InfantDashboardLinks(ContextMixin):
             wrapped_infant_birth=self.wrapped_infant_birth,
             infant_registered_subject=self.infant_registered_subject,
             mother_infant_study=self.mother_infant_study,
-            infant_dashboard_include_value=self.infant_dashboard_include_value)
+            infant_links=self.infant_links,
+            maternal_links=self.maternal_links,
+            infant_dashboard_include_value=self.infant_dashboard_include_value,
+            maternal_dashboard_include_value=self.maternal_dashboard_include_value)
         return context
 
 
@@ -76,6 +82,6 @@ class SubjectDashboardViewMixin(
         RegisteredSubjectViewMixin,
         VerifyRequisitionMixin,
         SpecialForms,
-        InfantDashboardLinks):
+        MaternalInfantDashboardLinks):
 
     pass
