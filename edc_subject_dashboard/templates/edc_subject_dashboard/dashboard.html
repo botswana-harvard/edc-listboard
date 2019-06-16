@@ -52,7 +52,10 @@
 					  	{% include "edc_subject_dashboard/dashboard/requisitions.html" %}
 					{% endblock requisitions %}
 			</div>
-				{% subject_schedule_footer_row subject_identifier current_visit_schedule current_schedule subject_dashboard_url %}
+				{% block dashboard_schedule_footer %}
+				
+					{% subject_schedule_footer_row subject_identifier current_visit_schedule current_schedule subject_dashboard_url %}
+				{% endblock dashboard_schedule_footer %}	
 	     	</div>
         {% else %}
 		    {% for visit_schedule in visit_schedules.values %}
@@ -81,7 +84,11 @@
 					{% endblock appointments %}
 
 					</div>
-						{% subject_schedule_footer_row subject_identifier visit_schedule schedule subject_dashboard_url %}
+
+						{% block appointments_schedule_footer %}
+				
+							{% subject_schedule_footer_row subject_identifier current_visit_schedule current_schedule subject_dashboard_url %}
+						{% endblock appointments_schedule_footer %}	
 			     	</div>
 			    {% endfor %}
 		    {% endfor %}
