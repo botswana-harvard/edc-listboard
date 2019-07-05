@@ -7,6 +7,35 @@
           {% block action_items %}{% endblock action_items %}           
     </div>
     {% endif %}
+ 
+ 	{% if mother_infant_study %}
+ 	
+ 		{% if infant_links %}
+	 	<div class="panel panel-default">
+	      <div class="panel-heading">
+	          <h6 class="panel-title">
+	              <a id="infant-dashboard-panel-title" data-toggle="collapse" data-parent="#accordion" href="#infant-dashboard-panel">Infant Dashboard Links <span class="caret"></span></a>
+	          </h6>
+	      </div>
+	      <div id="infant-dashboard-forms-panel" class="panel-collapse collapse in">
+	          {% block infant_dashboard %}{% endblock infant_dashboard %}           
+	      </div>           
+	    </div>
+	    {% endif %}
+	    
+	    {% if maternal_links %}
+	    <div class="panel panel-default">
+	      <div class="panel-heading">
+	          <h6 class="panel-title">
+	              <a id="maternal-dashboard-panel-title" data-toggle="collapse" data-parent="#accordion" href="#maternal-dashboard-panel">Maternal Dashboard Links <span class="caret"></span></a>
+	          </h6>
+	      </div>
+	      <div id="maternal-dashboard-forms-panel" class="panel-collapse collapse in">
+	          {% block maternal_dashboard %}{% endblock maternal_dashboard %}           
+	      </div>           
+	    </div>
+	    {% endif %}
+   {% endif %}
 
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -41,6 +70,17 @@
           {% block prn_lists %}{% endblock prn_lists %}           
       </div>           
     </div>
+   
+   	<div class="panel panel-default">
+      <div class="panel-heading">
+          <h6 class="panel-title">
+              <a id="special-forms-panel-title" data-toggle="collapse" data-parent="#accordion" href="#special-forms-panel">Special Forms <span class="caret"></span></a>
+          </h6>
+      </div>
+      <div id="special-forms-panel" class="panel-collapse collapse in">
+         {% block special_forms %}{% endblock special_forms %}
+      </div> 
+	</div>
 
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -53,6 +93,7 @@
          {% block consents %}{% endblock consents %}
       </div>           
     </div>
-
+    
+   
 
 </div>
