@@ -1,10 +1,10 @@
+from collections import namedtuple
 from django import template
-from edc_appointment.models.appointment import Appointment
+from django.apps import apps as django_apps
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 from edc_appointment.constants import IN_PROGRESS_APPT
+from edc_appointment.models.appointment import Appointment
 from edc_lab.models.manifest.consignee import Consignee
-from collections import namedtuple
-
 
 register = template.Library()
 
@@ -49,8 +49,9 @@ def forms_button(wrapper=None, visit=None, **kwargs):
 def appointment_in_progress(subject_identifier=None, visit_schedule=None,
                             schedule=None, **kwargs):
 
+    appointment_cls = django_apps.get_model(schedule.appointment_model)
     try:
-        appointment = Appointment.objects.get(
+        appointment = appointment_cls.objects.get(
             subject_identifier=subject_identifier,
             visit_schedule_name=visit_schedule.name,
             schedule_name=schedule.name,
@@ -58,7 +59,7 @@ def appointment_in_progress(subject_identifier=None, visit_schedule=None,
     except ObjectDoesNotExist:
         visit_code = None
     except MultipleObjectsReturned:
-        qs = Appointment.objects.filter(
+        qs = appointment_cls.objects.filter(
             subject_identifier=subject_identifier,
             visit_schedule_name=visit_schedule.name,
             schedule_name=schedule.name,
