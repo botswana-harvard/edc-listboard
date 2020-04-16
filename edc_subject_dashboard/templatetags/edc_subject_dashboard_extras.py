@@ -45,10 +45,9 @@ def forms_button(wrapper=None, visit=None, **kwargs):
     )
 
 
-@register.inclusion_tag('edc_subject_dashboard/appointment_in_progress.html')
+@register.simple_tag
 def appointment_in_progress(subject_identifier=None, visit_schedule=None,
                             schedule=None, **kwargs):
-
     appointment_cls = django_apps.get_model(schedule.appointment_model)
     try:
         appointment = appointment_cls.objects.get(
@@ -67,7 +66,7 @@ def appointment_in_progress(subject_identifier=None, visit_schedule=None,
         visit_code = ', '.join([obj.visit_code for obj in qs])
     else:
         visit_code = appointment.visit_code
-    return dict(visit_code=visit_code)
+    return visit_code
 
 
 @register.inclusion_tag(
