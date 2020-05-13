@@ -12,7 +12,6 @@ from .registered_subject_view_mixin import RegisteredSubjectViewMixin
 from .subject_visit_view_mixin import SubjectVisitViewMixin
 
 
-
 class VerifyRequisitionMixin(ContextMixin):
 
     def get_context_data(self, **kwargs):
@@ -85,7 +84,6 @@ class SubjectDashboardViewMixin(
         RegisteredSubjectViewMixin,
         VerifyRequisitionMixin,
         SpecialForms,
-        DataActionItemsViewMixin,
         MaternalInfantDashboardLinks):
 
     pass
