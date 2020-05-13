@@ -84,6 +84,7 @@ class SubjectDashboardViewMixin(
         RegisteredSubjectViewMixin,
         VerifyRequisitionMixin,
         SpecialForms,
+        DataActionItemsViewMixin,
         MaternalInfantDashboardLinks):
 
     pass
