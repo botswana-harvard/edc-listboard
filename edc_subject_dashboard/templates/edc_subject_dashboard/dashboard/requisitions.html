@@ -41,6 +41,7 @@
                                 {% endif %}
 				    		</td>
 						    <td>
+						    {%block keyed_requisition%}
 				    			{% if requisition.entry_status == KEYED %}
 					    			{% if requisition.object.is_drawn == YES and requisition.object.requisition_identifier %}
 					    				<span class="text text-success small">
@@ -57,6 +58,7 @@
 					    				<span class="text text-danger small"><i class="fa fa-warning"></i> ERROR</span>
 					    			{% endif %}
 				    			{% endif %}
+				             {%endblock keyed_requisition%}
 
 								<span class="btn-group pull-right">
 	                            {% if requisition.entry_status != NOT_REQUIRED %}
