@@ -26,6 +26,7 @@ class AppointmentModelWrapper(ModelWrapper):
             model = django_apps.get_app_config(
                 'edc_appointment').get_configuration(
                 related_visit_model=self.visit_model_wrapper_cls.model).model
+
             if declared_model and model != declared_model:
                 raise AppointmentModelWrapperError(
                     f'Declared model name does not match appointment '
