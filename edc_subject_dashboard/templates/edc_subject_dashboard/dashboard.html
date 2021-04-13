@@ -58,6 +58,7 @@
 				{% endblock dashboard_schedule_footer %}	
 	     	</div>
         {% else %}
+         {% block visit_schedules_panel %}
 		    {% for visit_schedule in visit_schedules.values %}
 		    	{% for schedule in visit_schedule.schedules.values %}
 					<div id="subject_dashboard_for_{{ visit_schedule.name|slugify }}-{{ schedule.name|slugify }}"
@@ -99,6 +100,7 @@
 			     	</div>
 			    {% endfor %}
 		    {% endfor %}
+		 {% endblock visit_schedules_panel %}
 	    {% endif %}
     </div> <!-- panel-group -->
   
