@@ -29,7 +29,7 @@
 				class="panel panel-{% if anonymous %}danger{% else %}info{% endif %}">
 			<div class="panel-heading clearfix">
 			  <i class="far fa-calendar fa-lg fa-fw"></i> 
-			      <a data-toggle="collapse" data-parent="#accordion_{{ current_visit_schedule.name|slugify }}-{{ current_schedule.name|slugify }}" aria-hidden="true"
+			      <a data-toggle="collapse" data-parent="#accordion_{{ current_visit_schedule.name|slugify }}-{{ appointment.schedule_name|slugify }}" aria-hidden="true"
 			         href="#subject_dashboard_forms_for_{{ current_visit_schedule.name|slugify }}-{{ current_schedule.name|slugify }}">
 			         {{ current_visit_schedule.verbose_name }} <i class="fa fa-caret-right"></i> {{ current_schedule.verbose_name }} <i class="fa fa-caret-right"></i> {{ appointment.visit_code }}.{{ appointment.visit_code_sequence }} {{ appointment.title|lower|title }} <span class="caret"></span>
 			      </a>
