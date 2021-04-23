@@ -12,6 +12,7 @@
                 <tbody>
 
                     {% for crf in crfs %}
+                       {% if crf.visit_schedule_name == appointment.visit_schedule_name %}
                         <tr>
                             <td>
                             <span class="{% if crf.entry_status == NOT_REQUIRED %}text text-muted small{% endif %}">
@@ -54,6 +55,7 @@
                               </span>
                             </td>
                         </tr>
+                      {% endif %}
                     {% endfor %}
                     {% if not crfs %}
                         <tr>

@@ -29,7 +29,7 @@
 				class="panel panel-{% if anonymous %}danger{% else %}info{% endif %}">
 			<div class="panel-heading clearfix">
 			  <i class="far fa-calendar fa-lg fa-fw"></i> 
-			      <a data-toggle="collapse" data-parent="#accordion_{{ current_visit_schedule.name|slugify }}-{{ current_schedule.name|slugify }}" aria-hidden="true"
+			      <a data-toggle="collapse" data-parent="#accordion_{{ current_visit_schedule.name|slugify }}-{{ appointment.schedule_name|slugify }}" aria-hidden="true"
 			         href="#subject_dashboard_forms_for_{{ current_visit_schedule.name|slugify }}-{{ current_schedule.name|slugify }}">
 			         {{ current_visit_schedule.verbose_name }} <i class="fa fa-caret-right"></i> {{ current_schedule.verbose_name }} <i class="fa fa-caret-right"></i> {{ appointment.visit_code }}.{{ appointment.visit_code_sequence }} {{ appointment.title|lower|title }} <span class="caret"></span>
 			      </a>
@@ -58,47 +58,11 @@
 				{% endblock dashboard_schedule_footer %}	
 	     	</div>
         {% else %}
-		    {% for visit_schedule in visit_schedules.values %}
-		    	{% for schedule in visit_schedule.schedules.values %}
-					<div id="subject_dashboard_for_{{ visit_schedule.name|slugify }}-{{ schedule.name|slugify }}"
-						class="panel panel-{% if anonymous %}danger{% else %}info{% endif %}">
-					<div class="panel-heading">
-					  <i class="far fa-calendar fa-lg fa-fw"></i> 
-					      <a data-toggle="collapse" data-parent="#accordion_{{ visit_schedule.name|slugify }}-{{ schedule.name|slugify }}" aria-hidden="true"
-					         href="#subject_dashboard_appointments_for_{{ visit_schedule.name|slugify }}-{{ schedule.name|slugify }}">
-					         {{ visit_schedule.verbose_name }} <i class="fa fa-caret-right"></i> {{ schedule.verbose_name }} <span class="caret"></span>
-					      </a>
-
-					      <span class="text text-default pull-right"><small>
-					      
-					      	{% appointment_in_progress subject_identifier visit_schedule schedule as visit_code %}
-					      
-					      	{% if visit_code %}
-							 <i class="fa fa-spinner fa-fw" aria-hidden="true" data-toggle="tooltip" title="Appointment {{ visit_code }} is currently in progress"></i> {{ visit_code }}
-							{% endif %}
-					  	    
-					  	  </small></span>
-
-					  
-					</div>
-				
-					<div id="subject_dashboard_appointments_for_{{ visit_schedule.name|slugify }}-{{ schedule.name|slugify }}"
-						class="panel-collapse collapse {% if visit_code != None %}in{% endif %}">
-						
-
-					{% block appointments %}
-						{% include "edc_subject_dashboard/dashboard/appointments.html" %}
-					{% endblock appointments %}
-
-					</div>
-
-						{% block appointments_schedule_footer %}
-				
-							{% subject_schedule_footer_row subject_identifier visit_schedule schedule subject_dashboard_url %}
-						{% endblock appointments_schedule_footer %}	
-			     	</div>
-			    {% endfor %}
-		    {% endfor %}
+           {% block visit_schedules_panel %}
+		      {% for visit_schedule in visit_schedules.values %}
+        		 {% include "edc_subject_dashboard/dashboard/schedules.html" %}
+        	  {% endfor %}
+		   {% endblock visit_schedules_panel %}
 	    {% endif %}
     </div> <!-- panel-group -->
   
