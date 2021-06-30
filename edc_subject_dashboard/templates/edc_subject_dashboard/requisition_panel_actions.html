@@ -18,7 +18,7 @@
 		action="{% url requisition_print_actions_url %}">
 	    {% csrf_token %}
 	    <input type="hidden" id="subject_identifier" name="subject_identifier" value="{{ subject_identifier }}">
-	    <input type="hidden" id="appointment" name="appointment" value="{{ appointment }}">
+	    <input type="hidden" id="appointment" name="appointment" value="{{ appointment_id }}">
 </form>
 
 <form id="form_requisition_verify_actions" name="form_requisition_verify_actions" method="post"
@@ -26,7 +26,7 @@
     {% csrf_token %}
     <input type="hidden" id="scanning" name="scanning" value="1">
     <input type="hidden" id="subject_identifier" name="subject_identifier" value="{{ subject_identifier }}">
-    <input type="hidden" id="appointment" name="appointment" value="{{ appointment }}">
+    <input type="hidden" id="appointment" name="appointment" value="{{ appointment_id }}">
 </form>
 
 <div class="input-group input-group-sm {% if error == '1' %}has-error{% elif error == '0' %}has-success{% else %}{% endif %}">
