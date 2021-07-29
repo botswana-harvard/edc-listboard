@@ -76,7 +76,7 @@ def requisition_panel_actions(context):
     appointment = context.get('appointment')
     scanning = context.get('scanning')
     autofocus = 'autofocus' if scanning else ''
-    context['appointment'] = str(appointment.object.pk)
+    context['appointment_id'] = str(appointment.object.pk)
     context['autofocus'] = autofocus
     return context
 
