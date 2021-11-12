@@ -25,7 +25,9 @@
 						</a>
                         {% endif %}
 
+
                         <!--begin unscheduled appointment -->
+                        {%block unscheduled_appt%}
                         {% if wrapped.object.next_by_timepoint %}
                           {% if not wrapped.disabled and wrapped.object.visit_code_sequence == 0 %}
                         	{% if wrapped.appt_status == INCOMPLETE_APPT or wrapped.appt_status == COMPLETE_APPT %}
@@ -35,6 +37,7 @@
 							{% endif %}
 						  {% endif %}
 						{% endif %}
+						{% endblock unscheduled_appt %}
                         <!--end unscheduled appointment -->
 
 
