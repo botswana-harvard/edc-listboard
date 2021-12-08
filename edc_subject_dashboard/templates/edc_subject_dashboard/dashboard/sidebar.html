@@ -56,6 +56,11 @@
 	{% endif %}
 {% endblock special_forms %}
 
+{% block odk_archive_forms %}
+	{% if odk_archive_forms_include_value %}
+		{% include odk_archive_forms_include_value %}
+	{% endif %}
+{% endblock odk_archive_forms %}
 
 {% block action_items %}   
 

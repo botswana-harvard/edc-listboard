@@ -31,6 +31,16 @@ class SpecialForms(ContextMixin):
         return context
 
 
+class ODKArchives(ContextMixin):
+
+    odk_archive_forms_include_value = None
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update(odk_archive_forms_include_value=self.odk_archive_forms_include_value)
+        return context
+
+
 class MaternalInfantDashboardLinks(ContextMixin):
 
     mother_infant_study = False
@@ -84,6 +94,7 @@ class SubjectDashboardViewMixin(
         RegisteredSubjectViewMixin,
         VerifyRequisitionMixin,
         SpecialForms,
+        ODKArchives,
         DataActionItemsViewMixin,
         MaternalInfantDashboardLinks):
 
