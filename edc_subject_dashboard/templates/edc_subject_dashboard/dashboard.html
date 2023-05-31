@@ -76,7 +76,6 @@
 					         href="#subject_dashboard_appointments_for_{{ visit_schedule.name|slugify }}-{{ schedule.name|slugify }}">
 					         {{ visit_schedule.verbose_name }} <i class="fa fa-caret-right"></i> {{ schedule.verbose_name }} <span class="caret"></span>
 					      </a>
-
 					      <span class="text text-default pull-right"><small>
 					      
 					      	{% appointment_in_progress subject_identifier visit_schedule schedule as visit_code %}
