@@ -23,12 +23,15 @@ APP_NAME = 'edc_subject_dashboard'
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '3tcabq_e@ihw3c=bl9k(%)du2eibjo*o%-$74_-%k3n^8rz_o*'
 
+# AUTO_CREATE_KEYS = True
+SITE_ID = 10
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-SITE_ID = '10'
+
+ETC_DIR = os.path.join('/etc/', APP_NAME)
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -44,6 +47,7 @@ INSTALLED_APPS = [
     'django_revision.apps.AppConfig',
     'simple_history',
     'edc_action_item.apps.AppConfig',
+    'edc_data_manager.apps.AppConfig',
     'edc_device.apps.AppConfig',
     'edc_lab.apps.AppConfig',
     'edc_locator.apps.AppConfig',
@@ -131,6 +135,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
